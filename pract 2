@@ -1,0 +1,35 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+	setlocale(LC_CTYPE, "rus");
+	int choice;
+
+	cout << "Программа \"Времена года \"" << endl;
+	cout << "[1] Лето" << endl;
+	cout << "[2] Осень" << endl;
+	cout << "[3] Зима" << endl;
+	cout << "[4] Весна" << endl;
+	cout << endl;
+	cout << "введите значение: " ;
+	cin >> choice;
+
+	  if (choice == 1) {
+		cout << "Сейчас лето можно одеться легеко и наслаждаться солнцем";
+	}
+	  else if (choice == 2) {
+		cout << "Сейчас осень, следует одеться тепло и взять с собой зонт";
+	}
+	 else if (choice == 3) {
+		cout << "Сейчас зима следует одеваться тепло и быть осторожным на льду";
+	}
+	else  if (choice == 4) {
+		cout << "Сейчас весна, можно одеться полегче но взять с собой куртку";
+	}
+	 
+	else {
+		cout << "Ошибка такого времени года нет";
+	}
+	return 1;
+}         
