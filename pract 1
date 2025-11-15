@@ -1,0 +1,43 @@
+#include <iostream>
+
+using namespace   std;
+int main() {
+
+
+	int a1 = 15;
+	cout << "a1 = " << a1 << " | тип: int, размер: 4 б." << endl;
+	int a2 = 154;
+	cout << "a2 = " << a2 << " | тип: int, размер: 4 б." << endl;
+	int a3 = 145;
+	cout << "a3 = " << a3 << " | тип: int, размер: 4 б." << endl;
+	int a4 = 149;
+	cout << "a4 = " << a4 << " | тип: int, размер: 4 б." << endl;
+	int a5 = 167;
+	cout << "a5 = " << a5 << " | тип: int, размер: 4 б." << endl;
+	cout << endl;
+
+	short s1 = 14;
+	cout << "s1 = " << s1 << " | тип: short, размер: 2 б." << endl;
+	short s2 = 2;
+	cout << "s2 = " << s2 << " | тип: short, размер: 2 б." << endl;
+	short s3 = 23;
+	cout << "s3 = " << s3 << " | тип: short, размер: 2 б." << endl;
+	short s4 = 12;
+	cout << "s4 = " << s4 << " | тип: short, размер: 2 б." << endl;
+	short s5 = 24;
+	cout << "s5 = " << s5 << " | тип: short, размер: 2 б." << endl;
+	cout << endl;
+
+	string e1 = "std";
+	cout << "e1 = " << e1 << " | тип: string, размер: 6 б." << endl;
+	string e2 = "wewe";
+	cout << "e2 = " << s2 << " | тип: short, размер: 6 б." << endl;
+	string e3 = "wdwd";
+	cout << "e3 = " << e3 << " | тип: short, размер: 6 б." << endl;
+	string e4 = "HDhH";
+	cout << "e4 = " << e4 << " | тип: short, размер: 6 б." << endl;
+	string e5 = "dhjf";
+	cout << "e5 = " << e5 << " | тип: short, размер: 6 б." << endl;
+	cout << endl;
+}
+
