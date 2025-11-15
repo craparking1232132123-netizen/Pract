@@ -1,0 +1,24 @@
+#include <iostream>
+
+using namespace   std;
+int main() {
+	setlocale(LC_ALL, "Russian");
+
+	int multiplier;
+	int answer;
+	while (multiplier <= 9) {
+		cout << "Решите пример: " << answer << " x " << multiplier << endl;
+		cout << "Ответ: ";
+		cin >> answer;
+
+		if (answer == answer * multiplier) {
+			cout << "Пример решен праивльно" << endl;
+		}
+		else {
+			cout << "[ ] ошибка пример решен неверно" << endl;
+			return 0;
+		}
+	}
+	cout << "[+] Все примеры решены  проздравляем" << endl;
+	return 0;
+}
