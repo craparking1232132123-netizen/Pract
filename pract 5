@@ -1,0 +1,35 @@
+#include <iostream>
+
+using namespace   std;
+int main() {
+	setlocale(0, "");
+
+	float number1; cout << "Введите превое число"; cin >> number1;
+	float number2; cout << "Введите превое число"; cin >> number2;
+	char round;
+	cout << "1) сложение    +\n" << "2) вычитание   -\n" << "3) умножение    *\n" << "4) деление    /\n" << "5) деление от остатка    %\n";
+	cout << "Выберите действие: "; cin >> round;
+
+	if (round == '+') {
+		cout << "Результат: " << number1 << " + " << number2 << " = " << number1 + number2;
+	}
+
+	else if (round == '-') {
+		cout << "Результат: " << number1 << " - " << number2 << " = " << number1 - number2;
+	}
+	else if (round == '*') {
+		cout << "Результат: " << number1 << " * " << number2 << " = " << number1 * number2;
+	}
+	else if (round == '/') {
+		if (number2 != 0) {
+			cout << "Результат: " << number1 << " / " << number2 << " = " << number1 / number2;
+		}
+		else {
+			cout << "Делить на 0 запрещено:";
+		}
+	}
+	else if (round == '%') {
+		cout << "Результат: " << number1 << " % " << number2 << " = " << (number1 % number2);
+	}
+}
+
