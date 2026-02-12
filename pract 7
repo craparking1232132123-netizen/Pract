@@ -1,0 +1,91 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+
+int main() {
+    setlocale(0, "");
+
+
+        int day;
+        int month;
+
+        cout << "=== Программа 'Календарь' ===" << endl << endl;
+        cout << "Меню:" << endl;
+        cout << "[*] Календарь" << endl;
+        cout << "[ 1 ] Январь" << endl;
+        cout << "[ 2 ] Февраль" << endl;
+        cout << "[ 3 ] Март" << endl;
+        cout << "[ 4 ] Апрель" << endl;
+        cout << "[ 5 ] Май" << endl;
+        cout << "[ 6 ] Июнь" << endl;
+        cout << "[ 7 ] Июль" << endl;
+        cout << "[ 8 ] Август" << endl;
+        cout << "[ 9 ] Сентябрь" << endl;
+        cout << "[ 10 ] Октябрь" << endl;
+        cout << "[ 11 ] Ноябрь" << endl;
+        cout << "[ 12 ] Декабрь" << endl;
+        cout << endl;
+
+        cout << "[*] Выберите месяц: ";
+        cin >> month;
+
+        switch (month) {
+        case 1:
+            cout << "Январь" << endl;
+            break;
+        case 2:
+            cout << "Февраль" << endl;
+            break;
+        case 3:
+            cout << "Март" << endl;
+            break;
+        case 4:
+            cout << "Апрель" << endl;
+            break;
+        case 5:
+            cout << "май" << endl;
+            break;
+        case 6:
+            cout << "Июнь" << endl;
+            break;
+        case 7:
+            cout << "Июль" << endl;
+            break;
+        case 8:
+            cout << "Август" << endl;
+            break;
+        case 9:
+            cout << "Сентябрь" << endl;
+            break;
+        case 10:
+            cout << "Октябрь" << endl;
+            break;
+        case 11:
+            cout << "Ноябрь" << endl;
+            break;
+        case 12:
+            cout << "Декабрь" << endl;
+            break;
+        default:
+            cout << "Ошибка: неверный номер месяца!" << endl;
+            return 1;
+        }
+
+        cout << "[*] Выбран месяц - \"" << month << "\"" << endl;
+
+        cout << "[*] Выберите день месяца: ";
+        cin >> day;
+
+        cout << endl;
+        cout << "Итог: программа выводит сообщение:" << endl;
+        cout << "[+] Календарь: " << day << " " << month << "." << endl;
+
+        return 0;
+    }
+
+
+
+
+
