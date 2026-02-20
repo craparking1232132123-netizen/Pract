@@ -1,0 +1,47 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    setlocale(0, "");
+
+    string ru[15] = { "Дом", "Дорога", "Машина", "Книга", "Стол", "Стул", "Окно", "Дверь", "Вода", "Хлеб", "Солнце", "Луна", "Город", "Река", "Небо" };
+    string en[15] = { "house", "road", "car", "book", "table", "chair", "window", "door", "water", "bread", "sun", "moon", "city", "river", "sky" };
+
+    int a, b;
+
+    do {
+        cout << "[+] Переводчик" << endl;
+        cout << "[1] Русские слова" << endl;
+        cout << "[2] Английские слова" << endl;
+        cout << "[3] Выйти" << endl;
+        cout << "Введите номер: ";
+        cin >> a;
+
+        switch (a) {
+        case 1:
+            cout << "[+] Список русских слов" << endl;
+            for (int i = 0; i < 15; i++) {
+                cout << "[" << i + 1 << "] " << ru[i] << endl;
+            }
+            cout << "Выберите номер слова: ";
+            cin >> b;
+            cout << "[+] Перевод: " << ru[b - 1] << " -> " << en[b - 1] << endl;
+            break;
+        case 2:
+            cout << "[+] Список английских слов" << endl;
+            for (int i = 0; i < 15; i++) {
+                cout << "[" << i + 1 << "] " << en[i] << endl;
+            }
+            cout << "Выберите номер слова: ";
+            cin >> b;
+            cout << "[+] Перевод: " << en[b - 1] << " -> " << ru[b - 1] << endl;
+            break;
+        case 3:
+            cout << "Выход..." << endl;
+            break;
+        }
+    } while (a != 3);
+
+    return 0;
+}
