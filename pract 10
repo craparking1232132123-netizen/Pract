@@ -1,0 +1,61 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int main() {
+    setlocale(0, "");
+    srand(time(0));
+    int menu;
+
+    while (true) {
+        cout << "\n[+] Угадайка" << endl;
+        cout << "[1] Начать игру" << endl;
+        cout << "[2] Выйти" << endl;
+        cout << "Выбор: ";
+        cin >> menu;
+
+        if (menu == 2) break;
+        if (menu != 1) { cout << "Ошибка!" << endl; continue; }
+
+        int nums[3];
+        nums[0] = rand() % 10 + 1;
+        do { nums[1] = rand() % 10 + 1; } while (nums[1] == nums[0]);
+        do { nums[2] = rand() % 10 + 1; } while (nums[2] == nums[0] || nums[2] == nums[1]);
+
+        int ugadano = 0, popytki = 5;
+        bool ugadanye[3] = { false, false, false };
+
+        while (popytki > 0 && ugadano < 3) {
+            cout << "\n[+] Угаданных чисел: [" << ugadano << " / 3]" << endl;
+            cout << "[+] Попыток: [" << popytki << "]" << endl;
+            cout << "\n[>] Угадать число: ";
+            int guess;
+            cin >> guess;
+
+            if (guess < 1 || guess > 10) {
+                cout << "[-] Ошибка! Введите число от 1 до 10" << endl;
+                continue;
+            }
+
+            popytki--;
+            bool found = false;
+            for (int i = 0; i < 3; i++) {
+                if (!ugadanye[i] && nums[i] == guess) {
+                    ugadanye[i] = true;
+                    ugadano++;
+                    found = true;
+                    break;
+                }
+            }
+
+            if (found) cout << "[+] Вы угадали число!" << endl;
+            else cout << "[-] Вы не угадали число!" << endl;
+        }
+
+        if (ugadano == 3) cout << "\n[+] Вы победили!" << endl;
+        else cout << "\n[-] Вы проиграли! Числа были: " << nums[0] << ", " << nums[1] << ", " << nums[2] << endl;
+    }
+
+    return 0;
+}
