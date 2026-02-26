@@ -1,0 +1,73 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void drawLine(int length, char texture, bool horizontal) {
+    if (horizontal) {
+        for (int i = 0; i < length; i++) {
+            cout << texture << " ";
+        }
+        cout << endl;
+    }
+    else {
+        for (int i = 0; i < length; i++) {
+            cout << texture << endl;
+        }
+    }
+}
+
+int main() {
+    setlocale(0, "");
+    int choice;
+
+    while (true) {
+        system("cls");
+        cout << "[+] Программа - \"Геометрические фигуры\"" << endl;
+        cout << endl;
+        cout << "[1] Линия" << endl;
+        cout << "[0] Выйти" << endl;
+        cout << endl;
+        cout << "[+] Выберите фигуру: ";
+        cin >> choice;
+
+        if (choice == 0) {
+            cout << "Программа завершается." << endl;
+            break;
+        }
+
+        if (choice == 1) {
+            system("cls");
+            cout << "[+] Фигура: \"Линия\"" << endl;
+            cout << endl;
+            cout << "[1] Горизонтальная" << endl;
+            cout << "[2] Вертикальная" << endl;
+            cout << endl;
+            cout << "[+] Выберите тип: ";
+            int type;
+            cin >> type;
+
+            int length;
+            cout << "[+] Длина линии: ";
+            cin >> length;
+
+            char texture;
+            cout << "[+] Текстура линии: ";
+            cin >> texture;
+
+            cout << endl;
+            cout << "[+] Результат:" << endl;
+
+            if (type == 1) {
+                drawLine(length, texture, true);
+            }
+            else if (type == 2) {
+                drawLine(length, texture, false);
+            }
+
+            cout << endl;
+            system("pause");
+        }
+    }
+
+    return 0;
+}
