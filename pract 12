@@ -1,0 +1,131 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cstdlib>
+
+using namespace std;
+
+
+void setColor(int color) {
+    system(("color " + to_string(color)).c_str());
+}
+
+struct Question {
+    string text;
+    vector<string> answers;
+    int correct;
+};
+
+string playerName = "User";
+int maxQuestions = 3;
+int colorTheme = 7;
+
+vector<Question> questions = {
+    {"Системный язык программирования?",
+     {"Python", "C#", "Ruby", "C++"}, 3},
+    {"Что такое if?",
+     {"Цикл", "Условие", "Функция", "Переменная"}, 1},
+    {"Какой язык используют для веба?",
+     {"HTML", "C++", "Assembler", "Pascal"}, 0}
+};
+
+void showRules() {
+    cout << "\n=== ПРАВИЛА ===\n";
+    cout << "Игрок получает очки за правильный ответ на вопрос\n";
+    cout << "Игрок проходит дальше за правильный ответ\n";
+    cout << "Игрок теряет жизнь при неправильном ответе\n";
+    cout << "1 - Назад в меню\n";
+    int x; cin >> x;
+}
+
+void settings() {
+    int choice;
+    while (true) {
+        cout << "\n=== НАСТРОЙКИ ===\n";
+        cout << "1. Изменить имя\n";
+        cout << "2. Кол-во вопросов (3-10-12)\n";
+        cout << "3. Цвет интерфейса\n";
+        cout << "4. Назад\n";
+        cin >> choice;
+
+        if (choice == 1) {
+            cout << "Введите имя: ";
+            cin >> playerName;
+        }
+        else if (choice == 2) {
+            cout << "Введите 3, 10 или 12: ";
+            cin >> maxQuestions;
+        }
+        else if (choice == 3) {
+            cout << "Введите цвет (0-9): ";
+            cin >> colorTheme;
+            setColor(colorTheme);
+        }
+        else if (choice == 4) break;
+    }
+}
+
+void startGame() {
+    int lives = 3;
+    int score = 0;
+
+    for (int i = 0; i < maxQuestions && lives > 0; i++) {
+        Question q = questions[i % questions.size()];
+
+        cout << "\nИгрок: " << playerName << " | Жизни: " << lives << " | Очки: " << score << endl;
+        cout << q.text << endl;
+
+        for (int j = 0; j < q.answers.size(); j++) {
+            cout << j << ") " << q.answers[j] << endl;
+        }
+
+        int answer;
+        cin >> answer;
+
+        if (answer == q.correct) {
+            cout << "Верно!\n";
+            score++;
+        }
+        else {
+            cout << "Неверно! Правильный ответ: " << q.answers[q.correct] << endl;
+            lives--;
+        }
+    }
+
+    if (lives == 0) {
+        cout << "\n=== ПОРАЖЕНИЕ ===\n";
+    }
+    else {
+        cout << "\n=== ПОБЕДА ===\n";
+    }
+
+    cout << "Очки: " << score << endl;
+    cout << "1 - В меню\n";
+    int x; cin >> x;
+}
+
+int main() {
+    setlocale(0, "");
+    setColor(colorTheme);
+    cout << "Добро пожаловать в викторину!\n";
+
+    int choice;
+
+    while (true) {
+        cout << "\n=== МЕНЮ ===\n";
+        cout << "1. Начать игру\n";
+        cout << "2. Настройки\n";
+        cout << "3. Правила\n";
+        cout << "4. Выйти\n";
+        cin >> choice;
+
+        if (choice == 1) startGame();
+        else if (choice == 2) settings();
+        else if (choice == 3) showRules();
+        else if (choice == 4) break;
+        else cout << "Неверный ввод\n";
+    }
+
+    cout << "Выход из программы...\n";
+    return 0;
+}
